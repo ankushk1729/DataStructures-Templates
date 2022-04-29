@@ -41,16 +41,16 @@ public:
  
 		// no overlap 
 		// we don't do anything and return 
-		// low high l r or l r low high 
+		// [low high] [l r] or [l r] [low high] 
 		if(high < l or r < low) {
 			return; 
 		}
  
 		// complete overlap 
-		// l low high r 
+		// [l low high r] 
 		if(low>=l && high <= r) {
 			seg[ind] += (high - low + 1) * val; 
-			// if a leaf node, it will no have children
+			// if a leaf node, it will have no children
 			if(low != high) {
 				lazy[2*ind+1] += val; 
 				lazy[2*ind+2] += val; 
